@@ -1,0 +1,14 @@
+language: ruby
+rvm:
+  - 2.1.2
+
+before_install:
+  - gem install bundler -v '< 2'
+
+before_script:
+  - sudo apt-get install -y libsqlite3-dev
+  - bundle install --jobs=4 --retry=3 --path vendor/bundle
+
+script:
+  - bundle exec rspec
+
